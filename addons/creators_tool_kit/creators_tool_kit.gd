@@ -5,9 +5,15 @@ var itch := preload("res://addons/creators_tool_kit/itch/itch.tscn")
 var git := preload("res://addons/creators_tool_kit/git/git.tscn")
 
 func _enter_tree():
-	add_tool_menu_item("Itch Options", Callable(self, "open_itch_tool"))
-	add_tool_menu_item("Git Options", Callable(self, "open_git_tool"))
-
+	
+	var dir := DirAccess.open("res://")
+	
+	if dir.dir_exists("res://addons/creators_tool_kit/itch"):
+		add_tool_menu_item("Itch Options", Callable(self, "open_itch_tool"))
+	if dir.dir_exists("res://addons/creators_tool_kit/git"):
+		add_tool_menu_item("Git Options", Callable(self, "open_git_tool"))
+	
+	
 
 func open_itch_tool():
 	var itch_tool: Popup = itch.instantiate()
@@ -18,8 +24,13 @@ func open_itch_tool():
 	itch_tool.popup()
 
 func _exit_tree():
-	remove_tool_menu_item("Itch Options")
-	remove_tool_menu_item("Git Options")
+	
+	var dir := DirAccess.open("res://")
+	
+	if dir.dir_exists("res://addons/creators_tool_kit/itch"):
+		remove_tool_menu_item("Itch Options")
+	if dir.dir_exists("res://addons/creators_tool_kit/git"):
+		remove_tool_menu_item("Git Options")
 
 func open_git_tool():
 	var git_tool: Popup = git.instantiate()
