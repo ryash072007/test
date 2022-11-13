@@ -36,19 +36,16 @@ offset_right = 750.0
 offset_bottom = 194.0
 
 [node name="itch" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
 offset_right = 700.0
 offset_bottom = 45.0
 
 [node name="Label" type="Label" parent="VBoxContainer/itch"]
-layout_mode = 2
 offset_right = 239.0
 offset_bottom = 45.0
 theme_override_font_sizes/font_size = 30
 text = "Sign in into itch: "
 
 [node name="itchSignIn" type="Button" parent="VBoxContainer/itch"]
-layout_mode = 2
 offset_left = 243.0
 offset_right = 469.0
 offset_bottom = 45.0
@@ -56,7 +53,6 @@ size_flags_horizontal = 3
 text = "Sign in"
 
 [node name="itchLogout" type="Button" parent="VBoxContainer/itch"]
-layout_mode = 2
 offset_left = 473.0
 offset_right = 700.0
 offset_bottom = 45.0
@@ -64,20 +60,17 @@ size_flags_horizontal = 3
 text = "Logout"
 
 [node name="export" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 49.0
 offset_right = 700.0
 offset_bottom = 94.0
 
 [node name="Label" type="Label" parent="VBoxContainer/export"]
-layout_mode = 2
 offset_right = 212.0
 offset_bottom = 45.0
 theme_override_font_sizes/font_size = 30
 text = "Export to itch: "
 
 [node name="export" type="Button" parent="VBoxContainer/export"]
-layout_mode = 2
 offset_left = 216.0
 offset_right = 700.0
 offset_bottom = 45.0
@@ -96,20 +89,17 @@ file_mode = 2
 show_hidden_files = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
 offset_top = 98.0
 offset_right = 700.0
 offset_bottom = 129.0
 
 [node name="username" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 342.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 placeholder_text = "Itch.io Username"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 346.0
 offset_right = 354.0
 offset_bottom = 31.0
@@ -117,7 +107,6 @@ theme_override_font_sizes/font_size = 20
 text = "/"
 
 [node name="gamename" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 358.0
 offset_right = 700.0
 offset_bottom = 31.0
@@ -126,7 +115,6 @@ placeholder_text = "Itch.io Game Name"
 
 [node name="exportLbl" type="Label" parent="VBoxContainer"]
 visible = false
-layout_mode = 2
 offset_top = 98.0
 offset_right = 700.0
 offset_bottom = 150.0
