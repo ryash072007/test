@@ -1,13 +1,27 @@
+@tool
 extends Popup
 
+func _ready():
+	popup_window = false
+	transient = true
+	exclusive = true
+	
+	
+	if FileAccess.file_exists("res://addons/creators_tool_kit/saves/git_repo.ryash"):
+		var save_file = FileAccess.open("res://addons/creators_tool_kit/saves/git_repo.ryash", FileAccess.READ)
+		$VBoxContainer/HBoxContainer/repo.text = save_file.get_as_text()
 
 func _on_ini_pressed():
 	var output: Array
 	OS.execute("git", ["init", ProjectSettings.globalize_path("res://")], output, true, true)
-#	print(output[0])
+	print(output[0])
 
 
 func _on_push_pressed():
+	var save_file = FileAccess.open("res://addons/creators_tool_kit/saves/git_repo.ryash", FileAccess.WRITE)
+	save_file.store_string($VBoxContainer/HBoxContainer/repo.text)
+	
+	
 	var output: Array
 	OS.execute("git", ["remote", "add", "origin", $VBoxContainer/HBoxContainer/repo.text], output, true, false)
 	var output_string: String = output[0]
