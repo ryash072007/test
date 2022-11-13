@@ -2,17 +2,17 @@
 extends Popup
 
 
-var butler_path: String
+var butler_path: String = "butler"
 
 func _ready():
 	$title.text += " - " + OS.get_name()
-	match OS.get_name():
-		"Windows":
-			butler_path = "res://addons/creators_tool_kit/itch/builds/win64/butler.exe"
-		"Linux":
-			butler_path = "res://addons/creators_tool_kit/itch/builds/linux64/butler"
-		"macOS":
-			butler_path = "res://addons/creators_tool_kit/itch/builds/macOS/butler"
+#	match OS.get_name():
+#		"Windows":
+#			butler_path = "res://addons/creators_tool_kit/itch/builds/win64/butler.exe"
+#		"Linux":
+#			butler_path = "res://addons/creators_tool_kit/itch/builds/linux64/butler"
+#		"macOS":
+#			butler_path = "res://addons/creators_tool_kit/itch/builds/macOS/butler"
 	
 	
 	$VBoxContainer/exportLbl.text = ""
