@@ -4,7 +4,7 @@ extends Popup
 func _on_ini_pressed():
 	var output: Array
 	OS.execute("git", ["init", ProjectSettings.globalize_path("res://")], output, true, true)
-	print(output[0])
+#	print(output[0])
 
 
 func _on_push_pressed():
