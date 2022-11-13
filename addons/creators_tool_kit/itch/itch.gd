@@ -5,7 +5,7 @@ extends Popup
 var butler_path: String = "butler"
 
 func _ready():
-	$title.text += " - " + OS.get_name()
+#	$title.text += " - " + OS.get_name()
 #	match OS.get_name():
 #		"Windows":
 #			butler_path = "res://addons/creators_tool_kit/itch/builds/win64/butler.exe"
@@ -20,6 +20,14 @@ func _ready():
 	transient = true
 	exclusive = true
 	$VBoxContainer/export/chooseFile.title = "Choose folder with executables"
+	
+	if FileAccess.file_exists("res://addons/creators_tool_kit/saves/itch_username.ryash"):
+		var save_file = FileAccess.open("res://addons/creators_tool_kit/saves/itch_username.ryash", FileAccess.READ)
+		$VBoxContainer/HBoxContainer/username.text = save_file.get_as_text()
+	
+	if FileAccess.file_exists("res://addons/creators_tool_kit/saves/itch_game_name.ryash"):
+		var new_save_file = FileAccess.open("res://addons/creators_tool_kit/saves/itch_game_name.ryash", FileAccess.READ)
+		$VBoxContainer/HBoxContainer/gamename.text = new_save_file.get_as_text()
 
 
 func _on_itch_sign_in_pressed():
@@ -41,6 +49,13 @@ func _on_export_pressed():
 	if $VBoxContainer/HBoxContainer/username.text == "" or $VBoxContainer/HBoxContainer/gamename.text == "":
 		OS.alert("Please fill in your username and Game Name.", "Enter details")
 		return
+	
+	var save_file = FileAccess.open("res://addons/creators_tool_kit/saves/itch_username.ryash", FileAccess.WRITE)
+	save_file.store_string($VBoxContainer/HBoxContainer/username.text)
+	
+	var new_save_file = FileAccess.open("res://addons/creators_tool_kit/saves/itch_game_name.ryash", FileAccess.WRITE)
+	new_save_file.store_string($VBoxContainer/HBoxContainer/gamename.text)
+	
 	$VBoxContainer/export/chooseFile.visible = true
 
 
