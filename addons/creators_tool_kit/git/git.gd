@@ -25,6 +25,4 @@ func _on_push_pressed():
 	OS.execute("git", ["commit", "-m", message], output, true, true)
 	output_string = output[0]
 	
-	output = []
-	OS.execute("git", ["push", "origin", "master"], output, true, true)
-	output_string = output[0]
+	OS.create_process("git", ["push", "origin", "master"], true)
